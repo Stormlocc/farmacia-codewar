@@ -17,6 +17,13 @@ class Usuario{
         return $this->objetos;
        
     } 
+    function obtener_usuario($id_usuario){
+        $sql="SELECT * FROM usuario join tipo_us ON us_tipo=id_tipo_us and id_usuario=:id_usuario";
+        $query = $this->acceso->prepare($sql);
+        $query->execute(array(':id_usuario' => $id_usuario));
+        $this->objetos = $query->fetchAll();
+        return $this->objetos;
+    }     
 }
 
 ?>

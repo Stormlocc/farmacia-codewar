@@ -33,24 +33,26 @@ if ($_SESSION['us_tipo'] == 1) {
                     <div class="row">
                         <div class="col-md-3">
                             <div class="card card-success card-outline">
+                                <!--En la sgte linea se recupera el usuario en una variable para el javascrip-->
+                                <input id="id_usuario" type="hidden" value="<?php echo $_SESSION['usuario']?>">
                                 <div class="card-body box-profile">
                                     <div class="text-center">
                                         <img src="../img/avatar.png" class="profile-user-img img-fluid img-circle">
-                                        <h3 class="profile-username text-center text-success">Nombre</h3>
-                                        <p class="text-muted text-center">Apellidos</p>
+                                        <h3 id= "nombre_us" class="profile-username text-center text-success">Nombre</h3>
+                                        <p id= "apellidos_us" class="text-muted text-center">Apellidos</p>
                                     </div>
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
                                             <b style="color:#0B7300">Edad</b>
-                                            <a href="" class="float-right">12</a>
+                                            <a id= "edad" href="" class="float-right">12</a>
                                         </li>
                                         <li class="list-group-item">
                                             <b style="color:#0B7300">DNI</b>
-                                            <a href="" class="float-right">12345678</a>
+                                            <a id= "dni_us" href="" class="float-right">12345678</a>
                                         </li>
                                         <li class="list-group-item">
                                             <b style="color:#0B7300">Tipo de usuario</b>
-                                            <span class="float-right badge badge-primary">Jodido</span>
+                                            <span id= "us_tipo" class="float-right badge badge-primary">Jodido</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -63,27 +65,27 @@ if ($_SESSION['us_tipo'] == 1) {
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-phone mr-1"> Telefono</i>
                                     </strong>
-                                    <p class="text-muted">999 98 78 77</p>
+                                    <p id= "telefono_us" class="text-muted">999 98 78 77</p>
 
                                     <strong style="color:#0B7300">
                                     <i class="fas fa-map-marker-alt mr-1"> Residencia</i>
                                     </strong>
-                                    <p class="text-muted">Av zarzuela</p>
+                                    <p id= "residencia_us"class="text-muted">Av zarzuela</p>
 
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-at mr-1"> Correo</i>
                                     </strong>
-                                    <p class="text-muted">gggg@gmail.com</p>
+                                    <p id= "correo_us" class="text-muted">gggg@gmail.com</p>
 
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-user mr-1"> Sexo</i>
                                     </strong>
-                                    <p class="text-muted">Bisexual</p>
+                                    <p id= "sexo_us" class="text-muted">Bisexual</p>
                                     
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-pencil-alt mr-1"> Adicional</i>
                                     </strong>
-                                    <p class="text-muted">Bisexual</p>
+                                    <p id= "adicional_us" class="text-muted">Hola soy</p>
 
                                     <button class="btn btn-block bg-gradient-danger">Editar</button>
 
@@ -168,3 +170,5 @@ if ($_SESSION['us_tipo'] == 1) {
     header('Location: ../index.php');
 }
 ?>
+
+<script src="../js/Usuario.js"></script>
