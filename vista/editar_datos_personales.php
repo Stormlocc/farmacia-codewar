@@ -85,23 +85,24 @@ if ($_SESSION['us_tipo'] == 1) {
                                 <!--En la sgte linea se recupera el usuario en una variable para el javascrip-->
                                 <input id="id_usuario" type="hidden" value="<?php echo $_SESSION['usuario'] ?>">
                                 <div class="card-body box-profile">
+                                    <!-- Estos datos se podrian sacar directamente de php y no javacript-->
                                     <div class="text-center">
                                         <img src="../img/avatar.png" class="profile-user-img img-fluid img-circle">
-                                        <h3 id="nombre_us" class="profile-username text-center text-success">Nombre</h3>
-                                        <p id="apellidos_us" class="text-muted text-center">Apellidos</p>
+                                        <h3 id="nombre_us" class="profile-username text-center text-success">Nombre xx</h3>
+                                        <p id="apellidos_us" class="text-muted text-center">Apellidos xx</p>
                                     </div>
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
                                             <b style="color:#0B7300">Edad</b>
-                                            <a id="edad" href="" class="float-right">12</a>
+                                            <a id="edad" href="" class="float-right">xx</a>
                                         </li>
                                         <li class="list-group-item">
                                             <b style="color:#0B7300">DNI</b>
-                                            <a id="dni_us" href="" class="float-right">12345678</a>
+                                            <a id="dni_us" href="" class="float-right">xxxxxxxx</a>
                                         </li>
                                         <li class="list-group-item">
                                             <b style="color:#0B7300">Tipo de usuario</b>
-                                            <span id="us_tipo" class="float-right badge badge-primary">Jodido</span>
+                                            <span id="us_tipo" class="float-right badge badge-primary">xxxxxx</span>
                                         </li>
                                         <button data-toggle="modal" data-target="#cambioContra" type="button" class="btn btn-block btn-outline-warning btn-sm">Cambiar contraseña</button>
                                     </ul>
@@ -115,27 +116,27 @@ if ($_SESSION['us_tipo'] == 1) {
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-phone mr-1"> Telefono</i>
                                     </strong>
-                                    <p id="telefono_us" class="text-muted">999 98 78 77</p>
+                                    <p id="telefono_us" class="text-muted">xxx xx xx xx</p>
 
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-map-marker-alt mr-1"> Residencia</i>
                                     </strong>
-                                    <p id="residencia_us" class="text-muted">Av zarzuela</p>
+                                    <p id="residencia_us" class="text-muted">Av xxxxxxx</p>
 
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-at mr-1"> Correo</i>
                                     </strong>
-                                    <p id="correo_us" class="text-muted">gggg@gmail.com</p>
+                                    <p id="correo_us" class="text-muted">xxxx@gmail.com</p>
 
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-user mr-1"> Sexo</i>
                                     </strong>
-                                    <p id="sexo_us" class="text-muted">Bisexual</p>
+                                    <p id="sexo_us" class="text-muted">xxxxx</p>
 
                                     <strong style="color:#0B7300">
                                         <i class="fas fa-pencil-alt mr-1"> Adicional</i>
                                     </strong>
-                                    <p id="adicional_us" class="text-muted">Hola soy</p>
+                                    <p id="adicional_us" class="text-muted">xxxxxxxxxxxxxxxxxxxxx</p>
 
                                     <button class="edit btn btn-block bg-gradient-danger">Editar</button>
 
@@ -200,21 +201,12 @@ if ($_SESSION['us_tipo'] == 1) {
 
                                 <card class="card-footer">
                                     <p class="text-muted">Cuidado con ingresar datos erroneos</p>
-
                                 </card>
-
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </section>
         <!-- /.content -->
     </div>

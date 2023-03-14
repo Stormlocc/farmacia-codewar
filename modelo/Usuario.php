@@ -2,27 +2,34 @@
 include_once 'Conexion.php';
 
 class Usuario{
-    var $objetos;
+    var $answer;
     private $acceso;
+
     public function __construct(){
-        $db = new Conexion();
+        $db = $this->ConexionBD();
         $this->acceso = $db->pdo;
     }
-
+    function ConexionBD(){
+        try{
+            return new Conexion();
+        }
+        catch (Exception $e) {
+            echo 'Excepción capturada en usuario.php al conectarse a la BD: ',  $e->getMessage(), "\n";
+        }
+    }
     function Loguearse($dni,$pass){
         $sql="SELECT * FROM usuario inner join tipo_us on us_tipo=id_tipo_us where dni_us=:dni and contrasena_us=:pass";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':dni' => $dni,':pass'=>$pass));
-        $this->objetos = $query->fetchAll();
-        return $this->objetos;
-       
+        $this->answer = $query->fetchAll();
+
     } 
     function obtener_usuario($id_usuario){
         $sql="SELECT * FROM usuario join tipo_us ON us_tipo=id_tipo_us and id_usuario=:id_usuario";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':id_usuario' => $id_usuario));
-        $this->objetos = $query->fetchAll();
-        return $this->objetos;
+        $this->answer = $query->fetchAll();
+        return $this->answer;
     }     
     
     function editar($id_usuario,$telefono,$residencia,$correo,$sexo,$adicional){

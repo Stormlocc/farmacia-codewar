@@ -8,8 +8,9 @@ $(document).ready(function () {
     //TODO: cambiar nombre de la funcion de buscar_usario a obtener_usuario
     function buscar_usuario(dato) {
         //Esto utiliza un template and interpolacion
+        //TODO: para asignar a este funcion hacer un diccionario
         funcion = 'buscar_usuario';
-        $.post('../controlador/UsuarioController.php', { dato, funcion }, (response) => {
+        $.post('../controlador/UsuarioController.php', { dato, funcion}, (response) => {
             //console.log(response);
             let nombre = '';
             let apellidos = '';

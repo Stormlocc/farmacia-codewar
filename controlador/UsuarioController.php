@@ -6,7 +6,7 @@ $usuario = new Usuario();
 if($_POST['funcion'] == 'buscar_usuario'){
     $json = array();
     $usuario->obtener_usuario($_POST['dato']);
-    foreach ($usuario->objetos as $objeto) {
+    foreach ($usuario->answer as $objeto) {
         $json[] = array(
             'nombre'=>$objeto->nombre_us,
             'apellidos'=>$objeto->apellidos_us,
@@ -28,7 +28,7 @@ if($_POST['funcion'] == 'capturar_datos'){
     $json = array();
     $id_usuario=$_POST['id_usuario'];
     $usuario->obtener_usuario($id_usuario);
-    foreach ($usuario->objetos as $objeto) {
+    foreach ($usuario->answer as $objeto) {
         $json[] = array(
             'telefono'=>$objeto->telefono_us,
             'residencia'=>$objeto->residencia_us,
