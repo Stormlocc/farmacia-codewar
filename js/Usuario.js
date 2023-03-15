@@ -1,17 +1,21 @@
+funcionesUsuario = {
+    //Tener cuidado ya que los valores de estos son utilizados en UsuarioController.php
+    obtener_usuario: 'obtener_usuario',
+    capturar_datos: 'capturar_datos',
+    editar_datos: 'editar_datos'
+};
+
 $(document).ready(function () {
     var funcion = '';
     //recuperamos el usuario del front
     var id_usuario = $('#id_usuario').val();
     var edit_flag = false;
-    buscar_usuario(id_usuario);
+    obtener_publicar_usuario(id_usuario);
 
-    //TODO: cambiar nombre de la funcion de buscar_usario a obtener_usuario
-    function buscar_usuario(dato) {
-        //Esto utiliza un template and interpolacion
-        //TODO: para asignar a este funcion hacer un diccionario
-        funcion = 'buscar_usuario';
-        $.post('../controlador/UsuarioController.php', { dato, funcion}, (response) => {
-            //console.log(response);
+    function obtener_publicar_usuario(dato) {
+        funcion = funcionesUsuario.obtener_usuario;
+        //AJAX
+        $.post('../controlador/UsuarioController.php', { dato, funcion }, (response) => {
             let nombre = '';
             let apellidos = '';
             let edad = '';
@@ -34,7 +38,6 @@ $(document).ready(function () {
             correo += `${usuarioJson.correo}`;
             sexo += `${usuarioJson.sexo}`;
             adicional += `${usuarioJson.adicional}`;
-
             $('#nombre_us').html(nombre);
             $('#apellidos_us').html(apellidos);
             $('#edad').html(edad);
@@ -45,12 +48,11 @@ $(document).ready(function () {
             $('#correo_us').html(correo);
             $('#sexo_us').html(sexo);
             $('#adicional_us').html(adicional);
-
         });
     }
 
     $(document).on('click', '.edit', (e) => {
-        funcion = 'capturar_datos';
+        funcion = funcionesUsuario.capturar_datos;
         edit_flag = true;
         //AJAX
         $.post('../controlador/UsuarioController.php', { funcion, id_usuario }, (response) => {
@@ -61,7 +63,6 @@ $(document).ready(function () {
             $('#sexo').val(usuario.sexo);
             $('#adicional').val(usuario.adicional);
         });
-
     })
 
     $('#form-usuario').submit(e => {
@@ -71,10 +72,11 @@ $(document).ready(function () {
             let correo = $('#correo').val();
             let sexo = $('#sexo').val();
             let adicional = $('#adicional').val();
-            funcion = 'editar_usuario';
+            funcion = funcionesUsuario.editar_datos;
             //AJAX
             $.post('../controlador/UsuarioController.php', { id_usuario, funcion, telefono, residencia, correo, sexo, adicional }, (response) => {
                 if (response == 'editado') {
+                    //Mostrar efecto
                     $('#editado').hide('slow');
                     $('#editado').show(2000);
                     $('#editado').hide(2000);
@@ -82,16 +84,16 @@ $(document).ready(function () {
                     $('#form-usuario').trigger('reset');
                 }
                 edit_flag = false;
-                buscar_usuario(id_usuario);
+                obtener_publicar_usuario(id_usuario);
             })
         }
         else {
+            //Mostrar efecto
             $('#no_editado').hide('slow');
             $('#no_editado').show(1500);
             $('#no_editado').hide(2000);
             //Restaurar campos de input
             $('#form-usuario').trigger('reset');
-
         }
         e.preventDefault();
     })
